@@ -6,7 +6,7 @@ type ProfileAvatarProps = {
 export function ProfileAvatar() {
   return (
     <div className="profile-avatar">
-      <img src="/headshot.png" alt="Hao Hao" />
+      <img src="/photo.JPG" alt="Hao Hao" />
     </div>
   )
 }
