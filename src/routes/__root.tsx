@@ -14,12 +14,12 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Dr. Maya Chen — Academic & Personal Portfolio',
+        title: 'Dr. Hao Hao — Academic & Personal Portfolio',
       },
       {
         name: 'description',
         content:
-          'The academic work, research, teaching, and personal notebook of Dr. Maya Chen.',
+          'The academic work, research, teaching, and personal notebook of Dr. Hao Hao.',
       },
     ],
   }),
