@@ -9,9 +9,9 @@ const navItems = [
 export function SiteHeader() {
   return (
     <header className="site-header">
-      <Link to="/" className="wordmark" aria-label="Maya Chen home">
-        <span className="wordmark-mark">MC</span>
-        <span className="wordmark-name">Maya Chen</span>
+      <Link to="/" className="wordmark" aria-label="Hao Hao home">
+        <span className="wordmark-mark">HH</span>
+        <span className="wordmark-name">Hao Hao</span>
       </Link>
 
       <nav className="site-nav" aria-label="Primary navigation">
