@@ -17,6 +17,10 @@ function HomePage() {
   return (
     <div className="home-page page-enter">
       <section className="identity-hero">
+        <div className="hero-index" aria-hidden="true">
+          郝昊
+        </div>
+        
         <div className="identity-intro">
           <p className="eyebrow">Academic · Researcher · Applied Mathematics & Mechanical Engineering</p>
           <h1>
