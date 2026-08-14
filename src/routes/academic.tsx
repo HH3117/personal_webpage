@@ -62,7 +62,7 @@ function AcademicPage() {
 
       <article className="profile-content">
         <header className="profile-lead">
-          <p># Researching the mechanics of materials and structures under hydrodynamic loadings.</p>
+          <p>Researching the mechanics of materials and structures under hydrodynamic loadings.</p>
           <a
             href="#about"
             aria-label="Continue to About section"
@@ -173,12 +173,6 @@ function AcademicPage() {
           isOpen={!!openSections.cv}
           onToggle={() => toggleSection('cv')}
         >
-          <div className="cv-intro">
-            <p>
-              Add or replace the PDF files in the public folder, then update
-              these links with the document names you want visitors to see.
-            </p>
-          </div>
           <div className="document-list">
             <a href="/CV-EN.pdf" target="_blank" rel="noreferrer">
               <FileText />
