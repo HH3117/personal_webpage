@@ -22,15 +22,14 @@ function HomePage() {
         </div>
 
         <div className="identity-intro">
-          <p className="eyebrow">Academic · Researcher · Human</p>
+          <p className="eyebrow">Academic · Researcher · Applied Mathematics & Mechanical Engineering</p>
           <h1>
             <span>{profile.title}</span>
             {profile.name}
           </h1>
           <p className="role-line">{profile.role}</p>
           <p className="intro-copy">
-            I study how technology enters ordinary life—and how we might design
-            it with more care, curiosity, and public purpose.
+            I study how materials respond to extreme forces—and how we might design structures with greater strength, resilience, and reliability.
           </p>
         </div>
 
@@ -113,7 +112,7 @@ function HomePage() {
       </section>
 
       <footer className="page-footer">
-        <span>San Francisco · California</span>
+        <span>London · United Kingdom</span>
         <span>Last updated August 2026</span>
       </footer>
     </div>
