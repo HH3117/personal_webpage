@@ -14,6 +14,11 @@ export const academicPositions = [
     role: 'Research Associate',
     place: 'Department of Mechanical Engineering, Imperial College London',
   },
+  {
+    years: '2026 — present',
+    role: 'Research Associate',
+    place: 'School of Aerospace Engineering, Tsinghua University',
+  },
 ]
 
 export const publications = {
