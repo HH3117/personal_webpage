@@ -1,9 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router'
 import type { ReactNode } from 'react'
+import { useState } from 'react'
 import {
   ArrowDown,
   ArrowUpRight,
   BookOpen,
+  ChevronDown,
   Download,
   FileText,
   FlaskConical,
@@ -24,6 +26,14 @@ export const Route = createFileRoute('/academic')({
 const sectionLinks = ['about', 'publications', 'research', 'teaching', 'cv']
 
 function AcademicPage() {
+  const [openSections, setOpenSections] = useState<Record<string, boolean>>({
+    about: true,
+  })
+
+  function toggleSection(id: string) {
+    setOpenSections((current) => ({ ...current, [id]: !current[id] }))
+  }
+
   return (
     <div className="profile-page academic-page page-enter">
       <aside className="profile-sidebar">
@@ -36,7 +46,13 @@ function AcademicPage() {
         </a>
         <nav className="section-nav" aria-label="Academic profile sections">
           {sectionLinks.map((section, index) => (
-            <a key={section} href={`#${section}`}>
+            <a
+              key={section}
+              href={`#${section}`}
+              onClick={() =>
+                setOpenSections((current) => ({ ...current, [section]: true }))
+              }
+            >
               <span>0{index + 1}</span>
               {section}
             </a>
@@ -47,12 +63,25 @@ function AcademicPage() {
       <article className="profile-content">
         <header className="profile-lead">
           <p># Researching the mechanics of materials and structures under hydrodynamic loadings.</p>
-          <a href="#about" aria-label="Continue to About section">
+          <a
+            href="#about"
+            aria-label="Continue to About section"
+            onClick={() =>
+              setOpenSections((current) => ({ ...current, about: true }))
+            }
+          >
             Explore profile <ArrowDown size={18} />
           </a>
         </header>
 
-        <AcademicSection number="01" title="About" id="about" icon={<BookOpen />}>
+        <AcademicSection
+          number="01"
+          title="About"
+          id="about"
+          icon={<BookOpen />}
+          isOpen={!!openSections.about}
+          onToggle={() => toggleSection('about')}
+        >
           <div className="subsection-grid">
             <div>
               <h3>Bio</h3>
@@ -83,6 +112,8 @@ function AcademicPage() {
           title="Publications"
           id="publications"
           icon={<FileText />}
+          isOpen={!!openSections.publications}
+          onToggle={() => toggleSection('publications')}
         >
           <PublicationGroup title="In Press" items={publications.inPress} />
           <PublicationGroup title="Pre-Prints" items={publications.preprints} />
@@ -94,6 +125,8 @@ function AcademicPage() {
           title="Research"
           id="research"
           icon={<FlaskConical />}
+          isOpen={!!openSections.research}
+          onToggle={() => toggleSection('research')}
         >
           <div className="research-grid">
             <div className="research-feature">
@@ -125,12 +158,21 @@ function AcademicPage() {
           title="Teaching Activities"
           id="teaching"
           icon={<GraduationCap />}
+          isOpen={!!openSections.teaching}
+          onToggle={() => toggleSection('teaching')}
         >
           <PublicationGroup title="Project Supervision" items={teaching.ProjectSupervision} />
           <PublicationGroup title="Graduate Teaching Assitant" items={teaching.GraduateTeachingAssistant} />
         </AcademicSection>
-        
-        <AcademicSection number="05" title="CV" id="cv" icon={<Download />}>
+
+        <AcademicSection
+          number="05"
+          title="CV"
+          id="cv"
+          icon={<Download />}
+          isOpen={!!openSections.cv}
+          onToggle={() => toggleSection('cv')}
+        >
           <div className="cv-intro">
             <p>
               Add or replace the PDF files in the public folder, then update
@@ -167,6 +209,8 @@ type AcademicSectionProps = {
   id: string
   icon: ReactNode
   children: ReactNode
+  isOpen: boolean
+  onToggle: () => void
 }
 
 function AcademicSection({
@@ -175,15 +219,35 @@ function AcademicSection({
   id,
   icon,
   children,
+  isOpen,
+  onToggle,
 }: AcademicSectionProps) {
+  const panelId = `${id}-panel`
+
   return (
-    <section className="academic-section" id={id}>
-      <div className="academic-section-heading">
+    <section
+      className={`academic-section${isOpen ? ' is-open' : ''}`}
+      id={id}
+    >
+      <button
+        type="button"
+        className="academic-section-heading"
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+        onClick={onToggle}
+      >
         <span>{number}</span>
         <h2>{title}</h2>
-        <i>{icon}</i>
-      </div>
-      <div className="academic-section-body">{children}</div>
+        <span className="academic-section-heading-icons">
+          <i>{icon}</i>
+          <ChevronDown className="academic-section-chevron" size={20} aria-hidden="true" />
+        </span>
+      </button>
+      {isOpen && (
+        <div className="academic-section-body" id={panelId}>
+          {children}
+        </div>
+      )}
     </section>
   )
 }
