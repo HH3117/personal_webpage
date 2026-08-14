@@ -14,7 +14,7 @@ export const Route = createRootRoute({
         content: 'width=device-width, initial-scale=1',
       },
       {
-        title: 'Dr. Hao Hao — Academic & Personal Portfolio',
+        title: 'Dr. Hao Hao Portfolio',
       },
       {
         name: 'description',
