@@ -46,7 +46,7 @@ function AcademicPage() {
 
       <article className="profile-content">
         <header className="profile-lead">
-          <p>Researching the spaces between people, institutions, and intelligent systems.</p>
+          <p># Researching the mechanics of materials and structures under hydrodynamic loadings.</p>
           <a href="#about" aria-label="Continue to About section">
             Explore profile <ArrowDown size={18} />
           </a>
@@ -57,17 +57,10 @@ function AcademicPage() {
             <div>
               <h3>Bio</h3>
               <p className="large-copy">
-                I am an interdisciplinary researcher working across
-                human-computer interaction, science and technology studies, and
-                participatory design. My work asks how AI systems can become
-                more legible, negotiable, and accountable in the places where
-                people actually encounter them.
+                Hao Hao is a Research Associate in the Department of Mechanical Engineering at Imperial College London. His research focuses on fluid–structure interactions, with applications in fluid-induced damage and renewable energy. His broader research theme is to understand how transient and multiphase fluid phenomena interact with engineering structures, and to develop analytical and computational approaches to predict the resulting loads, deformation and damage.
               </p>
               <p>
-                I lead the Situated Systems Lab, a small research group that
-                combines fieldwork, prototyping, and public collaboration. Our
-                current projects explore AI in local government, healthcare,
-                and community archives.
+                He studied Mathematics with Applied Mathematics/Mathematical Physics at Imperial College London (BSc, 2017–2020), followed by an MSc in Advanced Mechanical Engineering (2020–2021) and a PhD in Mechanical Engineering (2022–2026). During his undergraduate studies, he developed a particular interest in fluid mechanics and computational methods and was awarded an MIT International Research Opportunity Undergraduate (IROP) bursary in 2019. His MSc was fully funded by Equinor, and his PhD was fully funded by the Department of Mechanical Engineering at Imperial College London. His PhD research investigated droplet-impact-induced erosion on coated wind turbine blades.
               </p>
             </div>
             <div>
@@ -133,17 +126,10 @@ function AcademicPage() {
           id="teaching"
           icon={<GraduationCap />}
         >
-          <div className="course-list">
-            {teaching.map((course) => (
-              <div className="course-row" key={course.code}>
-                <span>{course.code}</span>
-                <h3>{course.name}</h3>
-                <p>{course.detail}</p>
-              </div>
-            ))}
-          </div>
+          <PublicationGroup title="Project Supervision" items={teaching.ProjectSupervision} />
+          <PublicationGroup title="Graduate Teaching Assitant" items={teaching.GraduateTeachingAssitant} />
         </AcademicSection>
-
+        
         <AcademicSection number="05" title="CV" id="cv" icon={<Download />}>
           <div className="cv-intro">
             <p>
@@ -152,19 +138,19 @@ function AcademicPage() {
             </p>
           </div>
           <div className="document-list">
-            <a href="/maya-chen-cv.pdf" target="_blank" rel="noreferrer">
+            <a href="/hao-hao-cv-en.pdf" target="public/CV-EN.pdf" rel="noreferrer">
               <FileText />
               <span>
-                <strong>Full academic CV</strong>
-                <small>PDF document · replace with your file</small>
+                <strong>English CV</strong>
+                <small>PDF document</small>
               </span>
               <Download />
             </a>
-            <a href="/maya-chen-publications.pdf" target="_blank" rel="noreferrer">
+            <a href="/hao-hao-cv-cn.pdf" target="public/CV-CN.pdf" rel="noreferrer">
               <FileText />
               <span>
-                <strong>Complete publication list</strong>
-                <small>PDF document · replace with your file</small>
+                <strong>Chinese CV</strong>
+                <small>PDF document</small>
               </span>
               <Download />
             </a>
