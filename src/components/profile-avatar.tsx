@@ -3,12 +3,9 @@ type ProfileAvatarProps = {
   className?: string
 }
 
-export function ProfileAvatar({
-  mood = 'academic',
-  className = '',
-}: ProfileAvatarProps) {
+export function ProfileAvatar() {
   return (
-    <div
+    <div className="profile-avatar">
       <img src="/headshot.png" alt="Hao Hao" />
     </div>
   )
