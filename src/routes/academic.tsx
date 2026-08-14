@@ -53,8 +53,8 @@ function AcademicPage() {
         </header>
 
         <AcademicSection number="01" title="About" id="about" icon={<BookOpen />}>
-          <div className="subsection-grid">
-            <div>
+          <div className="parallel-panels about-panels">
+            <div className="academic-panel academic-panel--lead">
               <h3>Bio</h3>
               <p className="large-copy">
                 Hao Hao is a Research Associate in the Department of Mechanical Engineering at Imperial College London. His research focuses on fluid–structure interactions, with applications in fluid-induced damage and renewable energy. His broader research theme is to understand how transient and multiphase fluid phenomena interact with engineering structures, and to develop analytical and computational approaches to predict the resulting loads, deformation and damage.
@@ -63,7 +63,7 @@ function AcademicPage() {
                 He studied Mathematics with Applied Mathematics/Mathematical Physics at Imperial College London (BSc, 2017–2020), followed by an MSc in Advanced Mechanical Engineering (2020–2021) and a PhD in Mechanical Engineering (2022–2026). During his undergraduate studies, he developed a particular interest in fluid mechanics and computational methods and was awarded an MIT International Research Opportunity Undergraduate (IROP) bursary in 2019. His MSc was fully funded by Equinor, and his PhD was fully funded by the Department of Mechanical Engineering at Imperial College London. His PhD research investigated droplet-impact-induced erosion on coated wind turbine blades.
               </p>
             </div>
-            <div>
+            <div className="academic-panel academic-panel--accent">
               <h3>Academic Positions</h3>
               <div className="timeline">
                 {academicPositions.map((position) => (
@@ -84,9 +84,11 @@ function AcademicPage() {
           id="publications"
           icon={<FileText />}
         >
-          <PublicationGroup title="In Press" items={publications.inPress} />
-          <PublicationGroup title="Pre-Prints" items={publications.preprints} />
-          <PublicationGroup title="Technical Reports" items={publications.reports} />
+          <div className="parallel-panels publication-panels">
+            <PublicationGroup title="In Press" items={publications.inPress} />
+            <PublicationGroup title="Pre-Prints" items={publications.preprints} />
+            <PublicationGroup title="Technical Reports" items={publications.reports} />
+          </div>
         </AcademicSection>
 
         <AcademicSection
@@ -95,7 +97,7 @@ function AcademicPage() {
           id="research"
           icon={<FlaskConical />}
         >
-          <div className="research-grid">
+          <div className="parallel-panels research-panels">
             <div className="research-feature">
               <span>Current programme · 2024—2027</span>
               <h3>Civic Encounters with AI</h3>
@@ -126,34 +128,41 @@ function AcademicPage() {
           id="teaching"
           icon={<GraduationCap />}
         >
-          <PublicationGroup title="Project Supervision" items={teaching.ProjectSupervision} />
-          <PublicationGroup title="Graduate Teaching Assitant" items={teaching.GraduateTeachingAssistant} />
+          <div className="parallel-panels teaching-panels">
+            <TeachingGroup title="Project Supervision" items={teaching.ProjectSupervision} />
+            <TeachingGroup
+              title="Graduate Teaching Assistant"
+              items={teaching.GraduateTeachingAssistant}
+            />
+          </div>
         </AcademicSection>
         
         <AcademicSection number="05" title="CV" id="cv" icon={<Download />}>
-          <div className="cv-intro">
-            <p>
-              Add or replace the PDF files in the public folder, then update
-              these links with the document names you want visitors to see.
-            </p>
-          </div>
-          <div className="document-list">
-            <a href="/hao-hao-cv-en.pdf" target="public/CV-EN.pdf" rel="noreferrer">
-              <FileText />
-              <span>
-                <strong>English CV</strong>
-                <small>PDF document</small>
-              </span>
-              <Download />
-            </a>
-            <a href="/hao-hao-cv-cn.pdf" target="public/CV-CN.pdf" rel="noreferrer">
-              <FileText />
-              <span>
-                <strong>Chinese CV</strong>
-                <small>PDF document</small>
-              </span>
-              <Download />
-            </a>
+          <div className="parallel-panels cv-panels">
+            <div className="cv-intro academic-panel academic-panel--accent">
+              <p>
+                Add or replace the PDF files in the public folder, then update
+                these links with the document names you want visitors to see.
+              </p>
+            </div>
+            <div className="document-list academic-panel">
+              <a href="/hao-hao-cv-en.pdf" target="public/CV-EN.pdf" rel="noreferrer">
+                <FileText />
+                <span>
+                  <strong>English CV</strong>
+                  <small>PDF document</small>
+                </span>
+                <Download />
+              </a>
+              <a href="/hao-hao-cv-cn.pdf" target="public/CV-CN.pdf" rel="noreferrer">
+                <FileText />
+                <span>
+                  <strong>Chinese CV</strong>
+                  <small>PDF document</small>
+                </span>
+                <Download />
+              </a>
+            </div>
           </div>
         </AcademicSection>
       </article>
@@ -202,7 +211,7 @@ function PublicationGroup({
   items: PublicationItem[]
 }) {
   return (
-    <div className="publication-group">
+    <section className="publication-group academic-panel">
       <h3>{title}</h3>
       <div>
         {items.map((item) => (
@@ -216,6 +225,35 @@ function PublicationGroup({
           </article>
         ))}
       </div>
-    </div>
+    </section>
+  )
+}
+
+type TeachingItem = {
+  code: string
+  name: string
+  detail: string
+}
+
+function TeachingGroup({
+  title,
+  items,
+}: {
+  title: string
+  items: TeachingItem[]
+}) {
+  return (
+    <section className="teaching-group academic-panel">
+      <h3>{title}</h3>
+      <div>
+        {items.map((item) => (
+          <article className="course-row" key={`${item.code}-${item.name}`}>
+            <span>{item.code}</span>
+            <h4>{item.name}</h4>
+            <p>{item.detail}</p>
+          </article>
+        ))}
+      </div>
+    </section>
   )
 }
