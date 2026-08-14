@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { ArrowUpRight, Camera, Map, Music2, PenLine } from 'lucide-react'
-import { ProfileAvatar } from '@/components/profile-avatar'
+import { ProfileAvatar } from '@/components/profile-avatar2'
 
 export const Route = createFileRoute('/personal')({
   component: PersonalPage,
