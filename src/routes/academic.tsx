@@ -127,7 +127,7 @@ function AcademicPage() {
           icon={<GraduationCap />}
         >
           <PublicationGroup title="Project Supervision" items={teaching.ProjectSupervision} />
-          <PublicationGroup title="Graduate Teaching Assitant" items={teaching.GraduateTeachingAssitant} />
+          <PublicationGroup title="Graduate Teaching Assitant" items={teaching.GraduateTeachingAssistant} />
         </AcademicSection>
         
         <AcademicSection number="05" title="CV" id="cv" icon={<Download />}>
