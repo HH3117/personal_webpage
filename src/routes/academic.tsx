@@ -42,7 +42,11 @@ function AcademicPage() {
         <h1>{profile.name}</h1>
         <p className="sidebar-role">{profile.role}</p>
         <a className="email-link" href={`mailto:${profile.email}`}>
-          {profile.email} <ArrowUpRight size={15} />
+          Email <ArrowUpRight size={15} />
+        </a>
+        <a className="website-link" href={profile.website}
+            target="_blank" rel="noreferrer" >
+            Personal website <ArrowUpRight size={15} />
         </a>
         <nav className="section-nav" aria-label="Academic profile sections">
           {sectionLinks.map((section, index) => (
