@@ -45,7 +45,7 @@ function AcademicPage() {
           Email <ArrowUpRight size={15} />
         </a>
         <a className="website-link" href={profile.website}>
-          Imperial Website <ArrowUpRight size={15} />
+          Website <ArrowUpRight size={15} />
         </a>
         <nav className="section-nav" aria-label="Academic profile sections">
           {sectionLinks.map((section, index) => (
