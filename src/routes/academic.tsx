@@ -180,7 +180,7 @@ function AcademicPage() {
             </p>
           </div>
           <div className="document-list">
-            <a href="/hao-hao-cv-en.pdf" target="public/CV-EN.pdf" rel="noreferrer">
+            <a href="/CV-EN.pdf" target="_blank" rel="noreferrer">
               <FileText />
               <span>
                 <strong>English CV</strong>
@@ -188,7 +188,7 @@ function AcademicPage() {
               </span>
               <Download />
             </a>
-            <a href="/hao-hao-cv-cn.pdf" target="public/CV-CN.pdf" rel="noreferrer">
+            <a href="/CV-CN.pdf" target="_blank" rel="noreferrer">
               <FileText />
               <span>
                 <strong>Chinese CV</strong>
