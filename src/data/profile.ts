@@ -5,6 +5,7 @@ export const profile = {
   department: 'Imperial College London',
   phone: '+44 (0)73 8019 9921',
   email: 'hao.hao17@imperial.ac.uk',
+  website: 'https://profiles.imperial.ac.uk/hao.hao17',
   address: '609, City and Guilds Building, South Kensington Campus, United Kingdom SW3 1PS',
 }
 
